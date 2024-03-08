@@ -1,7 +1,15 @@
 from django.shortcuts import render
 
+from apps.store import models
+
 def frontpage(request):
-    return render(request, 'frontpage.html')
+    products = models.Product.objects.all()
+
+    context = {
+        'products': products
+    }
+
+    return render(request, 'frontpage.html', context)
 
 
 def contact(request):
