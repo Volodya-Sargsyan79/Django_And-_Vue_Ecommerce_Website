@@ -3,8 +3,7 @@ from django.shortcuts import render
 from apps.store import models
 
 def frontpage(request):
-    products = models.Product.objects.all()
-
+    products = models.Product.objects.filter(is_featured=True)
     context = {
         'products': products
     }
@@ -14,3 +13,6 @@ def frontpage(request):
 
 def contact(request):
     return render(request, 'contact.html')
+
+def about(request):
+    return render(request, 'about.html')
