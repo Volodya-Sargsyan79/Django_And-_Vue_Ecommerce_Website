@@ -34,7 +34,7 @@
 
 		<section class="section">
 			{% block content %}
-            {% endblock %}
+      {% endblock %}
 		</section>
 		<footer class="footer">
 			<div class="columns">
@@ -48,12 +48,12 @@
 			</div>
 		</footer>
 		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-		<script src="https://unpkg.com/vuex@3.5.1/dist/vuex.js"></script>
-		{% block script %}{% endblock %}
+		<script src="https://unpkg.com/vuex@4.1.0/dist/vuex.global.js"></script>
+
 		<script>
 			var store = new Vuex.Store({
 				state: {
-					numItems: {{ prquantity }}
+					numItems: {{cart.get_total_length }}
 				},
 				mutations: {
 					increment(state, quantity) {
@@ -65,13 +65,14 @@
 			var navbarapp = new Vue({
 				el: '#navbarapp',
 				delimiters: ['[[', ']]'],
-				store: store,
 				computed: {
 					numItems: function() {
 						return store.state.numItems
 					}
 				}
 			})
-		</script>
+		</script>	
+		{% block script %}
+		{% endblock %}
 	</body>
 </html>

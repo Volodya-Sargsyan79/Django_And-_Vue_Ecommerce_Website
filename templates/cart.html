@@ -45,9 +45,6 @@
                 }
             },
             methods: {
-                decrementQuantity(product_id) {
-                    
-                },
                 incrementQuantity(product_id, quantity) {
                     var data = {
                         'product_id': product_id, 
@@ -68,7 +65,7 @@
                     })
                     .then((response) => {
                         console.log(response)
-                        for (var i = 0; 1 < this.products.length; i++) {
+                        for (var i = 0; i < this.products.length; i++) {
                             var product = this.products[i]
 
                             if (product.id === product_id) {
