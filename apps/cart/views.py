@@ -12,12 +12,9 @@ def cart_detail(request):
 
         productsstring = productsstring + b
 
-    print(cart.get_total_length(), 22222)
-
     context = {
         'cart': cart,
         'productsstring': productsstring,
-        'prquantity': cart.get_total_length()
     }
 
     return render(request, 'cart.html', context)
